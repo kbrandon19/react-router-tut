@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Expenses from "./Routes/expenses";
 import Invoices from "./Routes/invoices";
+import Invoice from "./Routes/invoice";
 import './index.css';
 import App from './App';
 
@@ -15,15 +16,15 @@ root.render(
         <Route path="/" element={<App />}>
         <Route path="/expenses" element={<Expenses/>}/>          
         <Route path="/invoices" element={<Invoices/>}/>
-        <Route
-      path="*"
-      element={
+          <Route path=":invoiceId" element={<Invoice />}/>
+        </Route>
+        <Route path="*" element={
         <main style={{ padding: "1rem" }}>
           <p>There's nothing here!</p>
         </main>
       }
     />
-        </Route>
+        
         
       </Routes>
     </BrowserRouter>
